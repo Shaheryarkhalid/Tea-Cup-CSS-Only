@@ -1,0 +1,96 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.Main-Section{
+    height: 100vh;
+    width: 100%;
+    background-color: #607d8c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Main-Section .Content-Wrapper{
+    position: relative;
+    z-index: 0;
+    transform-style: preserve-3d;
+
+}
+.Content-Wrapper .Cup{
+    height:180px;
+    width: 140px;
+    background-color: #fff;
+    border-radius: 0 0 60px 60px ;
+    perspective: 400px;
+    z-index: 5;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+}
+.Content-Wrapper .Circle{
+    position: absolute;
+    top:-70px;
+    height:140px;
+    width: 140px;
+    background-color: #fff;
+    border-radius: 100px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1) inset;
+    z-index: -10;
+    transform: rotateX(75deg);
+    perspective: 700px;
+    transform-style: preserve-3d;
+}
+.Content-Wrapper .Cup::before{
+    content: "";
+    top: 20px;
+    right:-55px;
+    position: absolute;
+    height:70px;
+    width: 40px;
+    border-radius:0 100px 100px 0;
+    border-width: 15px;
+    border-style: solid;
+    border-color: #fff;
+    z-index: 0;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3) inset;
+}
+.Content-Wrapper .Tea{
+    position: absolute;
+    top: -50px;
+    left: 5px;
+    height: 100px;
+    width: 130px;
+    background-color:#c07d61;
+    border-radius: 100px;
+    z-index: 5;
+    transform: rotateX(75deg);
+    perspective: 700px;
+
+}
+.Content-Wrapper .Steam{
+    position: absolute;
+    top:-10px;
+}
+.Content-Wrapper .Steam span{
+    height: 10px;
+    width: 90px;
+    position: absolute;
+    background-color: #fff;
+    color:#fff;
+    top:-10px;
+    box-shadow: 20px;
+    left: 20px;
+    animation:  Stream-Ani 4s ease infinite;
+    animation-delay: calc(var(--i)*0.9s);
+    z-index: 100;
+    box-shadow: 0 0 20px #fff;
+    opacity: 0;
+}
+@keyframes Stream-Ani{
+    0%{
+            opacity: 1;
+            transform: scaleY(0) translateY(10px) rotate(0deg); filter: blur(10px);
+    }
+    100%{
+             transform: scaleY(3) translateY(-20px) rotate(90deg) ; filter: blur(20px);
+    }
+}
